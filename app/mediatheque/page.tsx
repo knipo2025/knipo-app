@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ArrowRight, BookOpen, Video, Headphones, FileText, Globe } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
 
@@ -15,38 +16,48 @@ const categories = [
     description: "Les ouvrages fondamentaux sur l'histoire africaine, la philosophie et le développement de soi.",
     color: "#D4A84C",
     bg: "rgba(212,168,76,0.05)",
+    href: "/bibliotheque",
+    external: false,
   },
   {
     iconName: "Video",
-    title: "Documentaires",
-    count: "8 ressources",
-    description: "Films et documentaires sélectionnés pour leur profondeur et leur rigueur.",
+    title: "Documentaires & Vidéos",
+    count: "Chaîne YouTube",
+    description: "Films, documentaires et vidéos sélectionnés. Retrouve aussi toutes les vidéos KNIPO sur YouTube.",
     color: "#60a5fa",
     bg: "rgba(96,165,250,0.05)",
+    href: "https://youtube.com/@knipo2025",
+    external: true,
   },
   {
     iconName: "Headphones",
     title: "Podcasts & audio",
-    count: "15 ressources",
-    description: "Les meilleures émissions et podcasts sur les thèmes KNIPO.",
+    count: "Communauté",
+    description: "Les meilleures émissions et podcasts sur les thèmes KNIPO. Rejoins la discussion sur Telegram.",
     color: "#c084fc",
     bg: "rgba(192,132,252,0.05)",
+    href: "https://t.me/+xGJa6BKvhRE5MjJk",
+    external: true,
   },
   {
     iconName: "FileText",
     title: "Articles de fond",
-    count: "20 ressources",
-    description: "Analyses, essais et réflexions approfondies. La lecture longue comme pratique.",
+    count: "17 articles",
+    description: "Analyses, essais et réflexions approfondies. Histoire africaine, connaissance de soi, discipline.",
     color: "#4ade80",
     bg: "rgba(74,222,128,0.05)",
+    href: "/bibliotheque",
+    external: false,
   },
   {
     iconName: "Globe",
-    title: "Ressources en ligne",
-    count: "10 ressources",
-    description: "Sites, bases de données et archives numériques de référence.",
+    title: "Boutique & Ressources",
+    count: "Le Guide",
+    description: "Le Guide KNIPO — 51 pages, 12 chapitres. Disponible sur Etsy ou gratuitement par email.",
     color: "#fb923c",
     bg: "rgba(251,146,60,0.05)",
+    href: "https://www.etsy.com/fr/listing/4357566512/savoir-est-pouvoir-histoire-africaine",
+    external: true,
   },
 ];
 
@@ -132,10 +143,9 @@ export default function MediathequePage() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(1, 1fr)", gap: "1.5rem" }} className="categories-grid">
             {categories.map((cat) => {
               const Icon = IconMap[cat.iconName];
-              return (
+              const cardContent = (
                 <div
-                  key={cat.title}
-                  className="card-dark"
+                  className="media-card card-dark"
                   style={{
                     padding: "2rem",
                     backgroundColor: cat.bg,
@@ -143,6 +153,8 @@ export default function MediathequePage() {
                     cursor: "pointer",
                     display: "flex",
                     flexDirection: "column",
+                    textDecoration: "none",
+                    height: "100%",
                   }}
                 >
                   <div style={{ marginBottom: "1rem" }}>
@@ -150,21 +162,32 @@ export default function MediathequePage() {
                   </div>
                   <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: "0.75rem" }}>
                     <h3 style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(1.25rem, 2vw, 1.5rem)", color: "var(--c-text-primary)" }}>{cat.title}</h3>
-                    <span style={{ fontSize: "0.75rem", color: "var(--c-text-muted)", letterSpacing: "0.1em", marginTop: "2px" }}>{cat.count}</span>
+                    <span style={{ fontSize: "0.75rem", color: "var(--c-text-muted)", letterSpacing: "0.1em", marginTop: "2px", whiteSpace: "nowrap", marginLeft: "0.5rem" }}>{cat.count}</span>
                   </div>
                   <p style={{ fontFamily: "var(--font-sans)", fontSize: "0.875rem", color: "var(--c-text-secondary)", fontWeight: 300, marginBottom: "1.5rem", flex: 1 }}>
                     {cat.description}
                   </p>
-                  <span style={{ display: "flex", alignItems: "center", gap: "0.25rem", fontSize: "0.875rem", color: cat.color }}>
+                  <span className="media-explorer" style={{ display: "flex", alignItems: "center", gap: "0.25rem", fontSize: "0.875rem", color: cat.color, transition: "gap 0.2s" }}>
                     Explorer <ArrowRight size={14} />
                   </span>
                 </div>
+              );
+              return cat.external ? (
+                <a key={cat.title} href={cat.href} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
+                  {cardContent}
+                </a>
+              ) : (
+                <Link key={cat.title} href={cat.href} style={{ textDecoration: "none" }}>
+                  {cardContent}
+                </Link>
               );
             })}
           </div>
         </div>
 
         <style>{`
+          .media-card:hover { border-color: rgba(212,168,76,0.25) !important; transform: translateY(-2px); }
+          .media-card:hover .media-explorer { gap: 0.5rem !important; }
           @media (min-width: 768px) {
             .categories-grid { grid-template-columns: repeat(2, 1fr) !important; }
           }
