@@ -11,26 +11,29 @@ export const metadata: Metadata = {
 const ways = [
   {
     iconName: "Heart",
-    title: "Contribution financière",
-    description: "Soutenez directement la production de contenu, le développement de la médiathèque et la croissance du projet.",
-    cta: "Soutenir →",
-    href: "#don",
+    title: "Acheter le Guide sur Etsy",
+    description: "En achetant le Guide KNIPO sur Etsy, vous soutenez directement la production de contenus, la médiathèque et la mission du projet.",
+    cta: "Acheter sur Etsy →",
+    href: "https://www.etsy.com/fr/listing/4357566512/savoir-est-pouvoir-histoire-africaine",
+    external: true,
     featured: true,
   },
   {
     iconName: "Share2",
     title: "Partager le projet",
-    description: "La meilleure façon de soutenir KNIPO ? En parler autour de vous. Partager un article, recommander la plateforme.",
-    cta: "Partager KNIPO →",
-    href: "#partager",
+    description: "La meilleure façon de soutenir KNIPO ? En parler autour de vous. Partager un article, recommander la plateforme à ceux qui cherchent.",
+    cta: "Communauté Telegram →",
+    href: "https://t.me/+xGJa6BKvhRE5MjJk",
+    external: true,
     featured: false,
   },
   {
     iconName: "BookOpen",
-    title: "Acquérir le Guide",
-    description: "En obtenant le Guide KNIPO, vous accédez à un contenu de fond ET vous contribuez directement au projet.",
-    cta: "Obtenir le Guide →",
-    href: "/guide",
+    title: "Recevoir le Guide gratuitement",
+    description: "Tu peux aussi recevoir le Guide KNIPO gratuitement par email et rejoindre la communauté de ceux qui cherchent à s'élever.",
+    cta: "Recevoir gratuitement →",
+    href: "https://knipo2025.systeme.io/f37fb761",
+    external: true,
     featured: false,
   },
 ];
@@ -121,12 +124,14 @@ export default function SoutenirPage() {
                   <p style={{ fontFamily: "var(--font-sans)", fontSize: "0.875rem", color: "var(--c-text-secondary)", fontWeight: 300, flex: 1, marginBottom: "2rem" }}>
                     {way.description}
                   </p>
-                  <Link
+                  <a
                     href={way.href}
-                    className={way.featured ? "btn-primary" : "btn-outline"}
+                    target={way.external ? "_blank" : undefined}
+                    rel={way.external ? "noopener noreferrer" : undefined}
+                    className={way.featured ? "btn-primary" : "btn-outline-dark"}
                   >
                     {way.cta}
-                  </Link>
+                  </a>
                 </div>
               );
             })}
@@ -140,29 +145,38 @@ export default function SoutenirPage() {
         `}</style>
       </section>
 
-      {/* Don section */}
-      <section id="don" className="py-section" style={{ background: "var(--c-bg-elevated)", borderTop: "1px solid var(--c-border-main)", borderBottom: "1px solid var(--c-border-main)" }}>
-        <div className="container-knipo" style={{ maxWidth: "55rem", textAlign: "center" }}>
-          <SectionLabel style={{ marginBottom: "1.5rem", justifyContent: "center" }}>Contribution directe</SectionLabel>
-          <h2 style={{
+      {/* Contact section */}
+      <section style={{ background: "var(--c-bg-elevated)", padding: "5rem 0", borderTop: "1px solid var(--c-border-main)" }}>
+        <div className="container-knipo" style={{ maxWidth: "44rem", textAlign: "center" }}>
+          <p style={{
             fontFamily: "var(--font-serif)",
-            fontSize: "clamp(2rem, 4vw, 3.5rem)",
-            fontWeight: 300,
-            color: "var(--c-text-primary)",
+            fontSize: "clamp(1.5rem, 3vw, 2rem)",
+            fontStyle: "italic",
+            color: "var(--c-gold)",
             marginBottom: "1.5rem",
-            marginTop: "1.5rem",
+            lineHeight: 1.4,
           }}>
-            Soutenir le projet
-          </h2>
-          <p style={{ fontFamily: "var(--font-sans)", fontSize: "1.125rem", color: "var(--c-text-secondary)", marginBottom: "2.5rem", fontWeight: 300 }}>
-            Le système de paiement sécurisé arrive bientôt. En attendant, contactez-nous directement pour toute contribution.
+            &ldquo;Le meilleur investissement est celui qui élève une conscience.&rdquo;
           </p>
-          <div className="card-dark" style={{ padding: "2rem", textAlign: "center" }}>
-            <p style={{ fontFamily: "var(--font-serif)", fontSize: "1.5rem", color: "var(--c-text-primary)", fontStyle: "italic", marginBottom: "1rem" }}>
-              &ldquo;Le meilleur investissement est celui qui élève une conscience.&rdquo;
-            </p>
-            <p className="section-label">KNIPO</p>
-          </div>
+          <p style={{ fontFamily: "var(--font-sans)", fontSize: "0.875rem", color: "var(--c-text-muted)", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "2.5rem" }}>
+            KNIPO
+          </p>
+          <p style={{ fontFamily: "var(--font-sans)", fontSize: "1rem", color: "var(--c-text-secondary)", marginBottom: "1.5rem" }}>
+            Pour toute question ou collaboration :
+          </p>
+          <a
+            href="mailto:contact@knipoorg"
+            style={{
+              fontFamily: "var(--font-sans)",
+              fontSize: "1.125rem",
+              color: "var(--c-gold)",
+              textDecoration: "none",
+              borderBottom: "1px solid rgba(212,168,76,0.4)",
+              paddingBottom: "2px",
+            }}
+          >
+            contact@knipoorg
+          </a>
         </div>
       </section>
     </>

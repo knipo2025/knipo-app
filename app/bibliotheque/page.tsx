@@ -539,9 +539,14 @@ export default function BibliothequeePage() {
             <Link href="/guide" className="btn-primary">
               Découvrir le Guide →
             </Link>
-            <Link href="/guide#gratuit" className="btn-outline-dark">
+            <a
+              href="https://knipo2025.systeme.io/f37fb761"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-outline-dark"
+            >
               Recevoir gratuitement
-            </Link>
+            </a>
           </div>
         </div>
       </section>

@@ -131,7 +131,9 @@ export default function GuidePage() {
                   Acheter sur Etsy
                 </a>
                 <a
-                  href="#extrait"
+                  href="https://knipo2025.systeme.io/f37fb761"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="btn-outline-light"
                 >
                   <Gift size={16} />
@@ -615,7 +617,9 @@ export default function GuidePage() {
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem", justifyContent: "center" }}>
             <a
-              href="#extrait"
+              href="https://knipo2025.systeme.io/f37fb761"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-gold"
             >
               <Gift size={16} />

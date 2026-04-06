@@ -91,10 +91,34 @@ export default function BoutiquePage() {
               <p style={{ fontFamily: "var(--font-sans)", fontSize: "0.875rem", color: "var(--c-text-secondary)", fontWeight: 300, flex: 1, marginBottom: "2rem" }}>
                 Le guide fondamental. Histoire, identité, connaissance de soi, discipline, foi. Six chapitres pour construire des fondations solides.
               </p>
-              <div style={{ marginTop: "auto" }}>
-                <p style={{ fontFamily: "var(--font-serif)", fontSize: "1.875rem", color: "var(--c-text-primary)", marginBottom: "1.5rem" }}>Bientôt disponible</p>
-                <Link href="/guide" className="btn-primary" style={{ width: "100%", justifyContent: "center" }}>
-                  Découvrir le Guide <ArrowRight size={16} />
+              <div style={{ marginTop: "auto", display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+                <a
+                  href="https://www.etsy.com/fr/listing/4357566512/savoir-est-pouvoir-histoire-africaine"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary"
+                  style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "0.5rem" }}
+                >
+                  Acheter sur Etsy <ArrowRight size={16} />
+                </a>
+                <a
+                  href="https://knipo2025.systeme.io/f37fb761"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-outline-dark"
+                  style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "0.5rem" }}
+                >
+                  Recevoir gratuitement par email
+                </a>
+                <Link href="/guide" style={{
+                  fontFamily: "var(--font-sans)",
+                  fontSize: "0.8rem",
+                  color: "var(--c-text-muted)",
+                  textAlign: "center",
+                  textDecoration: "none",
+                  paddingTop: "0.25rem",
+                }}>
+                  En savoir plus sur le guide →
                 </Link>
               </div>
             </div>
