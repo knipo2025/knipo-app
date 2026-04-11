@@ -3,17 +3,22 @@
 import Link from "next/link";
 
 const navLinks = {
-  "Explorer": [
-    { href: "/a-propos", label: "À propos" },
+  "Contenu": [
     { href: "/bibliotheque", label: "Bibliothèque" },
-    { href: "/contenus", label: "Contenus" },
-    { href: "/mediatheque", label: "Médiathèque" },
     { href: "/guide", label: "Le Guide KNIPO" },
+    { href: "/mediatheque", label: "Médiathèque" },
+    { href: "/contenus", label: "Contenus" },
   ],
-  "Agir": [
+  "Communauté": [
+    { href: "/communaute", label: "Rejoindre" },
+    { href: "https://youtube.com/@knipo2025", label: "YouTube ↗", external: true },
+    { href: "https://t.me/+xGJa6BKvhRE5MjJk", label: "Telegram ↗", external: true },
     { href: "/soutenir", label: "Soutenir le projet" },
+  ],
+  "Projet": [
+    { href: "/a-propos", label: "À propos" },
     { href: "https://www.etsy.com/fr/listing/4357566512/savoir-est-pouvoir-histoire-africaine", label: "Boutique Etsy ↗", external: true },
-    { href: "https://t.me/+xGJa6BKvhRE5MjJk", label: "Communauté Telegram ↗", external: true },
+    { href: "mailto:contact@knipoorg", label: "Contact", external: true },
   ],
 };
 
@@ -64,7 +69,7 @@ export default function Footer() {
         {/* Grid principal : 4 colonnes sur desktop, 2 sur mobile */}
         <div style={{
           display: "grid",
-          gridTemplateColumns: "2fr 1fr 1fr",
+          gridTemplateColumns: "2fr 1fr 1fr 1fr",
           gap: "3rem 4rem",
         }}>
           {/* Colonne 1 — Brand */}

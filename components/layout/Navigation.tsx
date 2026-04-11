@@ -5,12 +5,9 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { href: "/a-propos", label: "À propos" },
-  { href: "/bibliotheque", label: "Bibliothèque" },
-  { href: "/contenus", label: "Contenus" },
-  { href: "/mediatheque", label: "Médiathèque" },
+  { href: "/bibliotheque", label: "Explorer" },
   { href: "/guide", label: "Le Guide", highlight: true },
-  { href: "/soutenir", label: "Soutenir" },
+  { href: "/communaute", label: "Communauté" },
 ];
 
 export default function Navigation() {
@@ -109,7 +106,7 @@ export default function Navigation() {
             transition: "all 0.3s",
             letterSpacing: "0.05em",
           }}>
-            Accéder au Guide
+            Obtenir le Guide
           </Link>
         )}
 
@@ -175,7 +172,7 @@ export default function Navigation() {
                 textDecoration: "none",
                 border: "1px solid rgba(212,168,76,0.3)",
               }} onClick={() => setIsOpen(false)}>
-                Accéder au Guide
+                Obtenir le Guide
               </Link>
             </div>
           </nav>
