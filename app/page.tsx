@@ -280,7 +280,7 @@ export default function HomePage() {
                     style={{ objectFit: "cover" }}
                     priority
                   />
-                  {/* Fallback visible tant que guide-cover.jpg n'est pas placé */}
+                  {/* Fallback si image absente */}
                   <div style={{
                     position: "absolute",
                     inset: 0,
@@ -290,7 +290,7 @@ export default function HomePage() {
                     alignItems: "center",
                     justifyContent: "center",
                     padding: "2rem",
-                    zIndex: 1,
+                    zIndex: -1,
                   }}>
                     <span style={{
                       fontFamily: "var(--font-cormorant)",
@@ -637,7 +637,7 @@ export default function HomePage() {
                   <div style={{
                     position: "absolute", inset: 0,
                     background: "linear-gradient(160deg, #1A0B2E, #3D1A6E 50%, #C97A0A)",
-                    zIndex: 1,
+                    zIndex: -1,
                     display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column",
                   }}>
                     <span style={{ fontFamily: "var(--font-cormorant)", fontSize: "5rem", color: "#D4A84C", fontWeight: 300 }}>K</span>
